@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🗼 Tokyo + Nikko · January 2027 · Seven Couples</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#f8f5f0;--dark:#1c1915;--gold:#b8862a;--gold-soft:#d9b76a;--paper:#fffdf9;--line:#e5ddd0;--muted:#6f675c;--snow:#eef2f5;--alert:#a33b2e;}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--dark);font-family:'Jost',sans-serif;font-weight:300;line-height:1.6;font-size:16px}
+h1,h2,h3,h4,h5{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.2}
+a{color:var(--gold);text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+.hero{background:var(--dark);color:var(--ivory);padding:70px 18px 50px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"❄";position:absolute;font-size:170px;opacity:.06;top:-28px;right:-8px}
+.hero .flag{font-size:40px}
+.hero h1{font-size:clamp(34px,6.5vw,58px);font-weight:500;margin:8px 0 4px}
+.hero h1 em{font-style:italic;color:var(--gold-soft)}
+.hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#e8e2d8;margin-top:8px}
+.hero .dates{margin-top:12px;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#cfc8bd}
+.hero .badges{margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .hb{background:rgba(255,255,255,.08);border:1px solid rgba(217,183,106,.45);border-radius:999px;padding:6px 16px;font-size:13px;color:var(--gold-soft)}
+nav{position:sticky;top:0;background:rgba(28,25,21,.97);z-index:50;box-shadow:0 2px 14px rgba(0,0,0,.2)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 16px}
+nav a{color:var(--ivory);font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;padding:7px 13px;border-radius:999px;white-space:nowrap;border:1px solid transparent}
+nav a:hover{border-color:var(--gold);color:var(--gold-soft)}
+section{padding:50px 0 4px}
+.sec-kicker{letter-spacing:.28em;text-transform:uppercase;font-size:11.5px;color:var(--gold);margin-bottom:6px}
+.sec-title{font-size:clamp(27px,4.4vw,36px);margin-bottom:10px}
+.sec-sub{color:var(--muted);margin-bottom:24px;font-size:15px}
+.day{background:var(--paper);border:1px solid var(--line);border-radius:14px;margin-bottom:30px;overflow:hidden;box-shadow:0 1px 4px rgba(28,25,21,.05)}
+.day-head{background:var(--dark);color:var(--ivory);padding:18px 24px}
+.day-head .dh1{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.day-head h3{font-size:24px;font-weight:500}
+.day-head .wd{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#bdb5a8}
+.day-head .agenda{font-size:13px;color:var(--gold-soft);margin-top:4px}
+.day-body{padding:20px 24px}
+.step{display:flex;gap:14px;padding:15px 0;border-bottom:1px dashed var(--line)}
+.step:last-child{border-bottom:none}
+.step .sn{min-width:34px;height:34px;border:1.5px solid var(--gold);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px}
+.step h4{font-size:18px;margin-bottom:2px}
+.step .tl{font-size:13px;color:#39536b;margin-bottom:5px}
+.step p{font-size:14.5px;color:#4c463d;margin-bottom:3px}
+.step .order{font-size:14px;color:#6b5310;background:#faf3e4;border-radius:6px;padding:6px 10px;margin:6px 0}
+.how{font-size:13.5px;color:#33475a;background:var(--snow);border-radius:7px;padding:8px 12px;margin:7px 0 4px}
+.pin{display:inline-block;font-size:13px;color:var(--gold);border-bottom:1px dotted var(--gold);margin:4px 14px 0 0}
+.route{background:var(--dark);color:var(--ivory);border-radius:12px;padding:18px 20px;margin:14px 0;text-align:center}
+.route .rt{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.04em}
+.route .rt b{color:var(--gold-soft)}
+.route .rd{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:#d8d2c7;margin-top:8px;flex-wrap:wrap}
+.route .rm{font-size:12.5px;color:#a49b8e;margin-top:8px}
+.hcard{background:#fbf8f1;border:1px solid #e8dcc0;border-radius:12px;padding:16px 18px;margin:14px 0}
+.hcard .ht{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.hcard h5{font-size:20px}
+.hcard .st{font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-radius:4px;padding:3px 9px}
+.hcard .st.ok{background:#e4efe2;color:#2f5d33}
+.hcard .st.todo{background:#fdeec9;color:#8a6112}
+.hrow{display:flex;gap:10px;font-size:14px;padding:5px 0;border-top:1px dashed #e8dcc0}
+.hrow .hk{min-width:110px;color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+.meals{background:var(--snow);border-radius:12px;padding:16px 18px;margin:16px 0 4px}
+.meals .mt{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#39536b;margin-bottom:10px}
+.meal{display:flex;gap:12px;padding:7px 0;border-top:1px dashed #d4dde4;font-size:14.5px;color:#33475a}
+.meal .mk{min-width:92px;font-weight:500}
+.alert{background:#fbeeec;border-left:4px solid var(--alert);border-radius:8px;padding:12px 15px;margin:12px 0;font-size:14px;color:#5c2c25}
+.alert b{color:var(--alert)}
+.tip{background:var(--snow);border-left:4px solid #6d90ad;border-radius:8px;padding:12px 15px;margin:12px 0;font-size:14px;color:#33475a}
+.bday{background:linear-gradient(135deg,#f4e8cf,#faf3e4);border:1px solid var(--gold-soft);border-radius:12px;padding:16px 18px;margin:14px 0}
+.bday h5{font-size:21px;color:#7c5a14}
+.bday p{font-size:14.5px;color:#57503f;margin-top:4px}
+.pills{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}
+.pill{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--gold);color:var(--gold);border-radius:999px;padding:6px 15px;font-size:13px;transition:.2s}
+.pill:hover{background:var(--gold);color:#fff}
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px;margin:14px 0}
+th{background:var(--dark);color:var(--ivory);text-align:left;padding:10px 13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;font-size:11px}
+td{padding:10px 13px;border-top:1px solid var(--line);vertical-align:top}
+td.num{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--gold);white-space:nowrap}
+.shop{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.shop h5{font-size:19px;margin-bottom:4px}
+.shop p{font-size:14.5px;color:#4c463d}
+.linkwall{display:flex;flex-wrap:wrap;gap:9px}
+.linkwall a{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 14px;font-size:13px;color:#6b5310}
+.linkwall a:hover{border-color:var(--gold)}
+footer{background:var(--dark);color:#a49b8e;text-align:center;padding:42px 18px;margin-top:56px;font-size:13px}
+footer .heart{color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;margin-bottom:6px}
+@media(max-width:560px){.step{gap:10px}.hrow .hk{min-width:88px}}
+
+.fix{background:var(--paper);border:1px solid var(--gold);border-radius:13px;padding:20px 23px;margin-bottom:15px}
+.fix .fixt{display:inline-block;background:var(--gold);color:#fff;font-size:11px;letter-spacing:.13em;text-transform:uppercase;padding:4px 13px;border-radius:999px;margin-bottom:9px}
+.fix h4{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;margin-bottom:6px}
+.idea{background:var(--snow);border:1px solid #d8e2ea;border-radius:13px;padding:18px 23px;margin-bottom:15px}
+.idea .ideat{display:inline-block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;font-weight:600}
+ul.ideas{margin:6px 0 0 18px}
+ul.ideas li{font-size:15px;margin-bottom:6px}
+/* ===== BOOKING DESK ===== */
+.cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;border-radius:999px;padding:10px 21px;font-size:14px;font-weight:500;letter-spacing:.02em;transition:.2s;box-shadow:0 2px 9px rgba(184,134,42,.28)}
+.cta:hover{background:var(--dark);color:var(--gold-soft)}
+.cta.alt{background:transparent;border:1.5px solid var(--gold);color:var(--gold);box-shadow:none}
+.cta.alt:hover{background:var(--gold);color:#fff}
+.ctas{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.bk{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:13px;padding:22px 24px;margin-bottom:15px}
+.bk .whn{display:inline-block;background:var(--dark);color:var(--gold-soft);font-size:11px;letter-spacing:.15em;text-transform:uppercase;padding:4px 13px;border-radius:999px;margin-bottom:11px}
+.bk .whn.soft{background:var(--gold);color:#fff}
+.bk .bkt{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;line-height:1.25;margin-bottom:7px}
+.bk p{font-size:15.5px;margin-bottom:4px}
+.bkm{display:flex;flex-wrap:wrap;gap:6px 9px;margin-top:11px}
+.bkm span{background:var(--ivory);border:1px solid var(--line);border-radius:6px;padding:4px 11px;font-size:12.5px;color:var(--muted)}
+.walk{background:var(--snow);border:1px solid #d8e2ea;border-radius:13px;padding:22px 24px;margin-top:22px}
+.walk h5{font-size:21px;margin-bottom:6px}
+.walk ul{margin:11px 0 0 19px}
+.walk li{font-size:15px;margin-bottom:6px}
+.who{background:var(--dark);color:#e8e2d8;border-radius:13px;padding:22px 24px;margin-top:22px}
+.who h5{font-size:21px;color:var(--gold-soft);margin-bottom:8px}
+.who p{font-size:15px}
+.who table{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16)}
+.who th{background:var(--gold);color:#fff}
+.who td{color:#f3efe6;border-top:1px solid rgba(255,255,255,.14)}
+.who td:first-child{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px;color:var(--gold-soft);white-space:nowrap}
+@media(max-width:560px){.bk{padding:18px 17px}.cta{padding:9px 17px;font-size:13.5px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="flag">🗼</div>
+  <h1>Tokyo + <em>Nikko</em></h1>
+  <div class="sub">Seven couples, one long table.</div>
+  <div class="dates">January 20 to 25, 2027 · A Group of 14 · PAL PR432 · Narita T2</div>
+  <div class="badges">
+    <span class="hb">👥 7 Couples · 14 Travellers</span>
+    <span class="hb">🗻 Hakone · Jan 21</span><span class="hb">❄️ Nikko Snow Day · Jan 22</span>
+    <span class="hb">🍶 Together Every Night</span>
+  </div>
+</div>
+
+<nav><div class="wrap">
+  <a href="#book">📋 Book</a><a href="#jan20">Jan 20</a><a href="#jan21">Jan 21</a><a href="#jan22">Jan 22 ❄️</a><a href="#jan23">Jan 23</a><a href="#jan24">Jan 24</a><a href="#jan25">Jan 25</a><a href="#eat">Eating</a><a href="#shopping">Shopping</a><a href="#tips">Tips</a><a href="#links">All Links</a>
+</div></nav>
+
+<!-- ============ BOOKING DESK ============ -->
+<section class="wrap" id="book">
+  <div class="sec-kicker">Everything In One Place</div>
+  <h2 class="sec-title">📋 The Booking Desk</h2>
+  <p class="sec-sub">Everything that needs reserving for this trip, in one place. Each card below tells you what it is, roughly what it costs, when to book it, and has a button that goes straight to the operator. Every link here has been checked and is live. Eight things need booking ahead. Everything else you simply walk into, and that list is at the bottom so nobody wastes an evening trying to reserve something that takes no reservation.</p>
+
+  <div class="bk">
+    <span class="whn">① Book now</span>
+    <div class="bkt">🏨 Seven hotel rooms, Jan 20 to 25</div>
+    <p><b>HOTEL GROOVE SHINJUKU, A PARKROYAL Hotel.</b> This is the one for your crew. It occupies floors 18 and 20 to 38 of the <b>Tokyu Kabukicho Tower</b>, which means you are not near the fun, you are living on top of it. Golden Gai is roughly 5 minutes on foot, Omoide Yokocho about 8, and Seibu Shinjuku Station is 1 minute from the door with Shinjuku Station itself 7 to 10 minutes. The tower below you holds restaurants, a cinema, live entertainment and a gaming floor, and the hotel has its own dining and bar floor on 17 plus a rooftop terrace bar. It opened in 2023 so everything is new, rooms run 21 to 61 sqm which is generous for Tokyo, and there are <b>538 rooms</b>, so a block of seven is nothing to them. Best of all: it is a Pan Pacific brand, so unlike the Japanese hotels its window is already open for your dates, and free-cancellation rates are available.</p>
+    <div class="bkm"><span>≈ ¥30,000 to 40,000 per room per night</span><span>538 rooms, 7 is easy</span><span>Free cancellation</span><span>+81 3 6233 8888</span><span>enquiry.prgtk@parkroyalhotels.com</span></div>
+    <div class="ctas">
+      <a class="cta" href="https://www.booking.com/hotel/jp/groove-shinjuku-a-parkroyal.html" target="_blank">Book HOTEL GROOVE →</a>
+      <a class="cta alt" href="https://www.hotelgroove.jp/en/" target="_blank">Official site</a>
+      <a class="cta alt" href="https://www.panpacific.com/en/hotels-and-resorts/hotel-groove-shinjuku.html" target="_blank">Pan Pacific (group enquiry)</a>
+      <a class="cta alt" href="https://www.booking.com/landmark/jp/shinjuku-staion.html" target="_blank">Southern Tower, check window</a>
+    </div>
+  </div>
+
+  <div class="bk">
+    <span class="whn">② Book now</span>
+    <div class="bkt">🚌 Private airport coach, both ways</div>
+    <p><b>CAB STATION</b> (Charter Bus &amp; Limousine Japan), a real Shinagawa operator with a long review history. Their <b>Medium Size Bus</b> seats 27, which comfortably takes all fourteen of you plus twenty-eight checked bags in one vehicle. Klook cannot do this: it caps at 9-seat vans, which would split your group across three cars. Prices are now all-inclusive of highway tolls, parking and the meet-and-greet, so there is nothing to pay on top. They track your flight, so the 20:00 Narita landing on Jan 20 is already handled, and the 05:45 departure pickup on Jan 25 is a standard request.</p>
+    <div class="bkm"><span>¥123,800 each way</span><span>All-inclusive</span><span>Book 2+ weeks ahead</span><span>Free cancel to 15 days prior</span></div>
+    <div class="ctas">
+      <a class="cta" href="https://rsv.charterbus-limousine.com/quotation/" target="_blank">Request your quote →</a>
+      <a class="cta alt" href="https://www.charterbus-limousine.com/airporttransfer/narita/" target="_blank">Narita transfer info</a>
+      <a class="cta alt" href="mailto:info@charterbus-limousine.com">Email them directly</a>
+    </div>
+  </div>
+
+  <div class="bk">
+    <span class="whn">③ By November 2026</span>
+    <div class="bkt">❄️ Hakone private guided day · Jan 21</div>
+    <p>Your second private day out, run the same way as Nikko: one microbus, one English guide, all fourteen together, hotel pickup. Owakudani volcanic valley, the Lake Ashi cruise under Mount Fuji, Hakone Shrine, with the clearest Fuji views of the year. <b>Quote it together with Nikko for a better combined rate.</b> Confirm all fourteen in one vehicle, insist on <b>winter tyres</b>, pay by card, and get everything in writing before any deposit.</p>
+    <div class="bkm"><span>Private, 14 in one microbus</span><span>~1 hr 45 min each way</span><span>Winter tyres required</span><span>Quote with Nikko</span><span>Book by Nov 2026</span></div>
+    <div class="ctas">
+      <a class="cta" href="https://rsv.charterbus-limousine.com/quotation/" target="_blank">CAB STATION quote →</a>
+      <a class="cta alt" href="https://www.thetokyotravel.com/private-tours/p/nikko-private-day-tour-with-guide-temples-waterfalls-nature" target="_blank">TheTokyoTravel</a>
+      <a class="cta alt" href="https://www.getyourguide.com/hakone-l2492/" target="_blank">GetYourGuide Hakone</a>
+    </div>
+  </div>
+
+  <div class="bk">
+    <span class="whn">④ By November 2026</span>
+    <div class="bkt">❄️ Nikko private guided day · Jan 22</div>
+    <p>Two operators I have verified, so get both quotes and take the better one. <b>CAB STATION</b> runs a Nikko private tour from ¥103,500, and you ask them to quote the micro bus plus guide for fourteen. <b>TheTokyoTravel</b> charges a flat US$2,000 for groups of 9 to 20, guide and hotel pickup included, with admissions and the Kegon Falls elevator excluded. Whichever you pick, confirm the vehicle has <b>winter tyres</b>, because the Irohazaka switchbacks ice over in January.</p>
+    <div class="bkm"><span>≈ ¥5,157 to 6,514 each at 14</span><span>Confirm winter tyres</span><span>~7:30 AM pickup</span></div>
+    <div class="ctas">
+      <a class="cta" href="https://www.charterbus-limousine.com/private-tour/nikko/nikko.html" target="_blank">CAB STATION Nikko →</a>
+      <a class="cta alt" href="https://www.thetokyotravel.com/private-tours/p/nikko-private-day-tour-with-guide-temples-waterfalls-nature" target="_blank">TheTokyoTravel (flat $2,000)</a>
+    </div>
+  </div>
+
+  <div class="bk">
+    <span class="whn">⑤ By December 2026</span>
+    <div class="bkt">🍶 The group dinners, private rooms for fourteen</div>
+    <p>This is the booking most groups leave too late, and then eat separately. <b>Banya Shinjuku Higashiguchi</b> is your welcome-dinner anchor: private rooms for 2 to 60 guests, all-you-can-drink courses, instant online reservation with no sign-up, 5 minutes from the station, and open on Sundays. For the cold Nikko night, use their <b>Nishi-Shinjuku Sumitomo Building</b> branch instead, which runs 2-hour all-you-can-drink hot pot courses: black pork shabu-shabu from ¥5,500, premium wagyu sukiyaki from ¥7,000. Two different branches means two different meals, not the same room twice. Book at least the welcome dinner, the farewell dinner and the Nikko night now, and leave the rest loose.</p>
+    <div class="bkm"><span>Private rooms 2 to 60</span><span>Nomihoudai courses</span><span>≈ ¥5,500 to 8,000 each</span><span>Instant online booking</span></div>
+    <div class="ctas">
+      <a class="cta" href="https://www.tablecheck.com/en/banya-shinjuku" target="_blank">Book Banya (English) →</a>
+      <a class="cta alt" href="https://tabelog.com/en/tokyo/A1304/A130401/13030041/" target="_blank">Tabelog: Higashiguchi</a>
+      <a class="cta alt" href="https://tabelog.com/en/tokyo/A1304/A130401/13148762/" target="_blank">Tabelog: hot pot branch</a>
+    </div>
+  </div>
+
+  <div class="bk">
+    <span class="whn">⑥ Before you fly</span>
+    <div class="bkt">📱 eSIM and IC cards, one each</div>
+    <p>Buy both from Bicol and arrive sorted. The eSIM installs by QR before you leave, so all fourteen phones are online the second you land. For the IC card, note the trap: <b>Android phones bought outside Japan cannot load mobile Suica</b>, so anyone on an Android needs the physical Welcome Suica card. iPhone users can just add Suica to Apple Wallet and skip the queue entirely.</p>
+    <div class="bkm"><span>≈ ₱500 eSIM</span><span>Physical Suica for Android</span><span>iPhone: use Apple Wallet</span></div>
+    <div class="ctas">
+      <a class="cta" href="https://www.klook.com/en-PH/activity/109393-japan-esim-high-speed-internet-qr-code-voucher/" target="_blank">Japan eSIM →</a>
+      <a class="cta alt" href="https://www.klook.com/en-US/activity/16917-suica-ic-card-tokyo/" target="_blank">Welcome Suica card</a>
+    </div>
+  </div>
+
+  <div class="bk">
+    <span class="whn soft">⑦ Optional, but very you</span>
+    <div class="bkt">🍻 Guided Shinjuku bar-hop, one night</div>
+    <p>Golden Gai's best bars are behind unmarked doors, some with a locals-only feel and a language barrier. A guide walks you straight in. Take the <b>private</b> version if you want the whole group together, or the <b>join-in</b> if only a few of you fancy it. Do this on the Jan 23 big night and it becomes the story everyone tells afterwards.</p>
+    <div class="bkm"><span>Golden Gai + Omoide Yokocho</span><span>3 hours</span><span>Best on Jan 23</span></div>
+    <div class="ctas">
+      <a class="cta" href="https://www.klook.com/en-US/activity/93203-omoide-yokocho-kabukicho-district-shinjuku-golden-gai-private-half-day-food-tour/" target="_blank">Private bar-hop →</a>
+      <a class="cta alt" href="https://www.klook.com/en-US/activity/94282-shinjuku-area-join-half-day-drinks-tour-3-hour-tokyo-local-bar-izakaya-crawl/" target="_blank">Join-in version</a>
+    </div>
+  </div>
+
+  <div class="bk">
+    <span class="whn soft">Optional · No booking needed</span>
+    <div class="bkt">♨️ Two more Kabukicho things, both on your doorstep</div>
+    <p><b>Thermae-Yu</b> is a genuine natural hot spring in the middle of Kabukicho, about 5 minutes from your hotel, fed by water piped from Naka-Izu. Six indoor baths, an open-air bath and saunas, open 24 hours. It is the perfect landing spot on the Jan 22 evening when you come back frozen from Nikko. Entry is around ¥2,700 to 2,800, or roughly ¥2,200 if you buy online in advance. One warning: the <b>tattoo policy is strict and complicated</b>, so anyone with ink should check before going rather than being turned away at the door.</p>
+    <p style="margin-top:9px">The <b>Samurai Restaurant</b> is the loud, neon, samurai-and-ninja dinner show in Kabukicho, successor to the old Robot Restaurant. It is gloriously silly and about two hours long, which makes it a good pre-drinks activity for a group that likes a spectacle. Tickets are widely available and it is a few minutes from the hotel.</p>
+    <div class="bkm"><span>Thermae-Yu ≈ ¥2,200 online</span><span>Open 24 hours</span><span>Check the tattoo policy</span><span>Samurai show ≈ 2 hrs</span></div>
+    <div class="ctas">
+      <a class="cta alt" href="https://maps.google.com/?q=Thermae-Yu+Shinjuku+Kabukicho" target="_blank">Thermae-Yu location</a>
+      <a class="cta alt" href="https://maps.google.com/?q=Samurai+Restaurant+Kabukicho+Shinjuku" target="_blank">Samurai Restaurant</a>
+    </div>
+  </div>
+
+  
+
+  <div class="bk">
+    <span class="whn">⑧ Jan 17 to 20, then Jan 19</span>
+    <div class="bkt">🛂 eTravel and PAL check-in</div>
+    <p><b>eTravel</b> opens 72 hours before departure and every one of the fourteen needs their own. Do it as a group over one evening and screenshot every QR code, because airport wifi will fail you exactly when you need it. <b>PAL online check-in</b> opens 24 hours before, so Jan 19 for the whole group.</p>
+    <div class="bkm"><span>All 14 individually</span><span>Screenshot every QR</span><span>PAL check-in Jan 19</span></div>
+    <div class="ctas">
+      <a class="cta" href="https://etravel.gov.ph" target="_blank">eTravel →</a>
+      <a class="cta alt" href="https://www.philippineairlines.com" target="_blank">PAL check-in</a>
+    </div>
+  </div>
+
+  <div class="walk">
+    <h5>🚶 And everything you do NOT need to book</h5>
+    <p>Do not waste an evening trying to reserve any of these. They are walk-in, and half of them are free.</p>
+    <ul>
+      <li><b>Omoide Yokocho and Golden Gai</b> · walk in, but bring cash. Most bars are cash-only with a small seating charge, and they seat 5 to 10 people, so you will split into clusters naturally.</li>
+      <li><b>Senso-ji temple and Nakamise shopping street</b> · free, always open, no ticket.</li>
+      <li><b>Meiji Jingu shrine</b> · free, and your Jan 21 guide handles it anyway.</li>
+      <li><b>Shibuya crossing, Takeshita Street, Omotesando</b> · just turn up.</li>
+      <li><b>Isetan, NEWoMan, Lumine, Yodobashi, Bic Camera, Matsumoto Kiyoshi</b> · walk in with your passports for tax-free over ¥5,000 per store.</li>
+      <li><b>Tsukiji Outer Market</b> · no booking, cash-first, go hungry and early.</li>
+      <li><b>Shibuya Sky and Tokyo Skytree</b> · you can buy on the day, but a timed slot is worth it on a Sunday afternoon.</li>
+    </ul>
+  </div>
+
+  <div class="who">
+    <h5>👥 Who books what: one owner per job</h5>
+    <p>Fourteen people all emailing the same company is how bookings get doubled and dinners get missed. Each couple owns one job, gets it done, and drops the confirmation in the group chat. Everyone does their own eTravel and PAL check-in.</p>
+    <table>
+      <tr><th>Couple</th><th>Owns this booking</th></tr>
+      <tr><td>Couple 1</td><td>The 7 hotel rooms at HOTEL GROOVE (group rate, free-cancellation)</td></tr>
+      <tr><td>Couple 2</td><td>CAB STATION airport coach, both ways</td></tr>
+      <tr><td>Couple 3</td><td>The two free-day reunion lunches: Shabuzen Shibuya (Jan 23) and Asakusa Imahan (Jan 24)</td></tr>
+      <tr><td>Couple 4</td><td>The two private day trips, Hakone (Jan 21) and Nikko (Jan 22), quoted together</td></tr>
+      <tr><td>Couple 5</td><td>The three group dinners: Banya (Jan 21), MO-MO-PARADISE (Jan 22), farewell dinner (Jan 24)</td></tr>
+      <tr><td>Couple 6</td><td>Klook items for the group: eSIM and Welcome Suica, plus the optional bar-hop</td></tr>
+      <tr><td>Couple 7</td><td>Chase the seat backups and keep the master checklist and confirmations</td></tr>
+    </table>
+    <p style="margin-top:11px">Send the confirmations to me as they land and I will drop the QR codes straight into this guide.</p>
+  </div>
+</section>
+
+<!-- ============ JAN 20 ============ -->
+<section class="wrap" id="jan20">
+  <div class="sec-kicker">Wednesday · January 20</div>
+  <h2 class="sec-title">Daraga → Manila → Tokyo</h2>
+  <p class="sec-sub">Flying day. One job: get all fourteen of you to Shinjuku and into a warm bed.</p>
+  <div class="day">
+    <div class="day-head"><div class="dh1"><h3>Arrival Day</h3><span class="wd">Wednesday</span></div><div class="agenda">Two flights → Private coach → Check in → First beer</div></div>
+    <div class="day-body">
+      <div class="route">
+        <div class="rt">DRP ──── <b>PR2924</b> ──── MNL T2</div>
+        <div class="rd"><span>🛫 11:35 AM · Bicol Intl Airport</span><span>🛬 12:35 PM · NAIA Terminal 2</span></div>
+        <div class="rm">PAL Express · Bags checked through to Narita · Be at DRP by ~9:45 AM</div>
+      </div>
+      <div class="step"><div class="sn">1</div><div><h4>🚖 NAIA T2 → Terminal 1</h4>
+        <div class="tl">⏰ ~12:50 PM · Free NAIA shuttle or Grab · 15 to 25 min · Layover is about 2 hours</div>
+        <p>A snug but comfortable connection. Move over to T1, clear international check-in as a group, grab a quick bite and a coffee, and stay together. Bags are already tagged to Narita, so this is hands-free.</p></div></div>
+      <div class="route">
+        <div class="rt">MNL T1 ──── <b>PR432</b> Non-Stop ──── NRT T2</div>
+        <div class="rd"><span>🛫 2:50 PM · NAIA Terminal 1</span><span>🛬 8:00 PM · Narita Terminal 2</span></div>
+        <div class="rm">Philippine Airlines · 4h 10m · Meal onboard · You land into the Tokyo night</div>
+      </div>
+      <div class="step"><div class="sn">2</div><div><h4>🚌 The private coach to Shinjuku</h4>
+        <div class="tl">⏰ ~9:15 PM at the vehicle · 75 to 95 min into Shinjuku · Arrive hotel ~10:50 PM</div>
+        <p>This is the piece that keeps all fourteen together and stress-free after a long day. A chartered microbus meets you at arrivals and carries the whole group plus luggage straight to the hotel door. No trains, no splitting up, no dragging bags across a platform at night.</p>
+        <div class="how"><b>Step by step:</b><br>
+        ① Clear immigration and collect bags at <b>Narita Terminal 2</b>. Expect to reach the vehicle around 9:15 PM once everyone is through.<br>
+        ② Your driver waits in the <b>arrivals hall with a name sign</b> (give the operator the lead name when you book). Gather the full group before you head out to the coach.<br>
+        ③ Ride into Shinjuku, roughly 75 to 95 minutes depending on traffic. Doze if you like.<br>
+        ④ Dropped at the hotel door. Check in together.</div>
+        <div class="pills"><a class="pill" href="https://maps.google.com/?q=Narita+Airport+Terminal+2" target="_blank">📍 Narita Terminal 2</a><a class="pill" href="https://rsv.charterbus-limousine.com/quotation/" target="_blank">🚐 CAB STATION quote</a></div><div class="ctas"><a class="cta" href="https://rsv.charterbus-limousine.com/quotation/" target="_blank">Book the coach →</a></div></div></div>
+      <div class="hcard">
+        <div class="ht"><h5>🏨 Shinjuku base · Jan 20 to 25 · 5 nights · 7 rooms</h5><span class="st todo">⏳ BOOK KEIO PLAZA NOW</span></div>
+        <div class="hrow"><span class="hk">Why here</span><span><b>HOTEL GROOVE SHINJUKU, A PARKROYAL Hotel</b>, floors 18 and 20 to 38 of the Tokyu Kabukicho Tower. You are living directly above the entertainment district: <b>Golden Gai about 5 minutes</b>, <b>Omoide Yokocho about 8</b>, Seibu Shinjuku Station 1 minute, Shinjuku Station 7 to 10, and Isetan and the Sanchome shopping about 10. Restaurants, cinema and live entertainment sit in the tower below you, and the hotel has its own dining and bar floor on 17 with a rooftop terrace bar. Opened 2023, rooms 21 to 61 sqm.</span></div><div class="hrow"><span class="hk">Bookable now</span><span>538 rooms, so seven is easy, and being a Pan Pacific brand its window is <b>already open</b> for January 2027 while the Japanese hotels are not. Take a free-cancellation rate and it is settled.</span></div><div class="hrow"><span class="hk">Honest note</span><span>This is Kabukicho, so the streets are busy and loud at night and there are touts near the main drag. For a group of fourteen adults who want to be in the middle of the fun, that is the point. The hotel entrance and lifts are separate from the street scene, and you sleep 20-plus floors above it all.</span></div><div class="hrow"><span class="hk">If you prefer calm</span><span><b>Odakyu Hotel Century Southern Tower</b> remains the quieter south-side option, 1 to 3 minutes from the station and above NEWoMan. Its January window has not opened yet, so check every couple of weeks. If it opens and the group would rather trade nightlife proximity for quiet, switch then and cancel GROOVE for free.</span></div>
+        <div class="hrow"><span class="hk">The block</span><span>Reserve <b>7 rooms</b> (one per couple) for all five nights. Email the hotel that you are <b>one group of fourteen</b> so they seat your rooms near each other, ideally on the same floors.</span></div>
+        <div class="hrow"><span class="hk">Room</span><span>Double or Twin, Non-Smoking · 5 nights · roughly ¥30,000 to 40,000 per room per night in late-Jan low season (~₱11,300 to 15,100)</span></div>
+        <div class="hrow"><span class="hk">Taxi card</span><span>Show any driver: <b>東急歌舞伎町タワー ホテルグルーヴ新宿</b> · 1-29-1 Kabukicho, Shinjuku-ku</span></div>
+        <div class="hrow"><span class="hk">Booking Ref</span><span><b>[ add when the 7 rooms are booked ]</b> · ask for the group desk, bring passports at check-in</span></div><div class="ctas"><a class="cta" href="https://www.booking.com/hotel/jp/groove-shinjuku-a-parkroyal.html" target="_blank">Book HOTEL GROOVE →</a><a class="cta alt" href="https://www.hotelgroove.jp/en/" target="_blank">Official site</a></div>
+        <div class="pills"><a class="pill" href="https://maps.google.com/?q=Tokyu+Kabukicho+Tower+Shinjuku" target="_blank">📍 Hotel (Kabukicho Tower)</a><a class="pill" href="https://www.google.com/maps/dir/?api=1&origin=Tokyu+Kabukicho+Tower&destination=Shinjuku+Golden+Gai&travelmode=walking" target="_blank">🚶 Hotel → Golden Gai</a><a class="pill" href="https://www.google.com/maps/dir/?api=1&origin=Tokyu+Kabukicho+Tower&destination=Omoide+Yokocho+Shinjuku&travelmode=walking" target="_blank">🚶 Hotel → Omoide Yokocho</a><a class="pill" href="https://www.google.com/maps/dir/?api=1&origin=Tokyu+Kabukicho+Tower&destination=Isetan+Shinjuku&travelmode=walking" target="_blank">🚶 Hotel → Isetan</a></div>
+      </div>
+      <div class="step"><div class="sn">3</div><div><h4>🏮 Bonus round: first beer in Memory Lane</h4>
+        <div class="tl">⏰ ~11:00 PM · Golden Gai 5 min, Omoide Yokocho 8 min · Zero commitment</div>
+        <p>Drop the bags, jackets back on, and for anyone still standing, Omoide Yokocho (Memory Lane) is a lantern-lit alley of tiny yakitori and beer stalls that runs late. One cold beer and a few skewers shoulder to shoulder with locals is your real "we made it to Tokyo" moment, then bed. If the flights won instead, the convenience store is a midnight feast and the alley will still be there all week.</p>
+        <a class="pin" href="https://maps.google.com/?q=Omoide+Yokocho+Shinjuku" target="_blank">📍 Omoide Yokocho</a></div></div>
+      <div class="meals"><div class="mt">🍽️ Breakfast · Lunch · Dinner</div>
+        <div class="meal"><span class="mk">🥐 Breakfast</span><span>At home or Bicol Intl Airport before the 11:35 AM flight. Keep it easy.</span></div>
+        <div class="meal"><span class="mk">🍜 Lunch</span><span>Quick bite inside NAIA T1 during the connection. Nothing heavy, dinner is coming on the plane.</span></div>
+        <div class="meal"><span class="mk">🍢 Dinner</span><span>Meal onboard PR432, then the Omoide Yokocho bonus round (beer + skewers) or a convenience-store spread in the rooms.</span></div>
+      </div>
+      <div class="alert"><b>Before you fly:</b> every one of the fourteen files eTravel within 72 hours of the Jan 20 flight (etravel.gov.ph). Screenshot each QR into your photos so nobody is scrambling at the gate.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JAN 21 ============ -->
+<section class="wrap" id="jan21">
+  <div class="sec-kicker">Thursday · January 21</div>
+  <h2 class="sec-title">Hakone: Fuji, Lake and Onsen</h2>
+  <p class="sec-sub">Your first proper day out, and the counterweight to five nights of Shinjuku. A private guided day trip into the mountains: a volcanic valley, a lake cruise under Mount Fuji, and the clearest Fuji views of the whole year. All fourteen together, one microbus, one guide, same as your Nikko day.</p>
+  <div class="day">
+    <div class="day-head"><div class="dh1"><h3>The Hakone Day</h3><span class="wd">Thursday</span></div><div class="agenda">~8 AM pickup → Owakudani + black eggs → Lake Ashi cruise → Hakone Shrine → back for dinner</div></div>
+    <div class="day-body">
+      <div class="step"><div class="sn">1</div><div><h4>🚌 Private pickup from the hotel</h4>
+        <div class="tl">⏰ ~8:00 AM · Hakone is about 90 km southwest · 1 hr 45 min drive</div>
+        <p>Your guide and microbus collect all fourteen of you from the hotel door. Hakone sits roughly 90 to 100 km from Tokyo, about one hour forty-five each way by private vehicle, so it is a comfortable day trip on almost exactly the same rhythm as Nikko: out mid-morning, full day in the mountains, back in Shinjuku for dinner. Doze on the way, the driver handles everything.</p></div></div>
+      <div class="step"><div class="sn">2</div><div><h4>🌋 Owakudani volcanic valley and the black eggs</h4>
+        <div class="tl">⏰ Late morning · Ropeway over the steaming valley</div>
+        <p>Ride the Hakone Ropeway up over <b>Owakudani</b>, a live volcanic valley where sulphur steam drifts from the hillside and the whole place smells of the earth's engine room. The tradition here is the <b>kuro-tamago</b>, eggs boiled black in the hot springs, said to add seven years to your life. On a clear winter morning the views back across to Fuji from the ropeway are extraordinary.</p>
+        <div class="pills"><a class="pill" href="https://maps.google.com/?q=Owakudani+Hakone" target="_blank">📍 Owakudani</a><a class="pill" href="https://maps.google.com/?q=Hakone+Ropeway+Sounzan" target="_blank">📍 Hakone Ropeway</a></div></div></div>
+      <div class="step"><div class="sn">3</div><div><h4>⛵ The Lake Ashi pirate ship, with Fuji on the water</h4>
+        <div class="tl">⏰ Early afternoon · ~30 to 40 min cruise across the lake</div>
+        <p>Down to <b>Lake Ashi</b>, a caldera lake formed by an eruption 3,000 years ago, and cross it on the retro galleon-style cruise boat. This is the postcard: the red <b>Heiwa no Torii</b> gate of Hakone Shrine rising straight out of the water, with Mount Fuji on the horizon behind it. Winter brings the clearest air of the year, so on a good day Fuji reflects in the lake surface. Stand out on the open deck for the photos even though it is cold, it is worth it.</p>
+        <div class="pills"><a class="pill" href="https://maps.google.com/?q=Lake+Ashi+Hakone" target="_blank">📍 Lake Ashi</a><a class="pill" href="https://maps.google.com/?q=Hakone+Shrine+Heiwa+no+Torii" target="_blank">📍 Hakone Shrine torii</a></div></div></div>
+      <div class="step"><div class="sn">4</div><div><h4>⛩️ Hakone Shrine and a warm-up before the drive</h4>
+        <div class="tl">⏰ Mid-afternoon · Then the road back to Shinjuku</div>
+        <p>Finish at <b>Hakone Shrine</b>, founded in 757, its vermilion gate and cedar-lined steps running down to the lake. If the group would rather trade the shrine for a soak, tell the guide: Hakone is onsen country and there are day-use baths near the lake. Then the drive home, back in Shinjuku with time to warm up before dinner.</p>
+        <div class="pills"><a class="pill" href="https://maps.google.com/?q=Hakone+Shrine" target="_blank">📍 Hakone Shrine</a></div></div></div>
+      <div class="alert"><b>Winter tyres, in writing.</b> Hakone's mountain roads can frost or snow in late January, exactly like the Irohazaka switchbacks on your Nikko day. When you book, state that the vehicle must have <b>winter tyres or chains</b>, and get it confirmed in writing. Your operator does this routinely, but it must be said.</div>
+      <div class="tip"><b>Book it as your second private day.</b> This runs on the same operators as Nikko, so quote both together for a better combined rate: <b>CAB STATION</b> (the one you vetted), <b>TheTokyoTravel</b> for a second quote, or a large platform like <b>GetYourGuide</b> that lists private Hakone tours with a guide and vehicle. Whichever you choose, confirm all fourteen in one vehicle, pay by card, and get the vehicle, guide, date, price, winter tyres and cancellation terms in writing before any deposit.</div>
+      <div class="bday">
+        <h5>🍶 7:30 PM: The welcome dinner, all fourteen</h5>
+        <p>Back in the warm, and the proper group welcome, first of five nights around one table. Book a <b>private-room izakaya</b> with a set course and <b>free-flow drinks (nomihoudai)</b> so nobody fusses over the bill. <b>Banya Shinjuku</b> has private rooms for 2 to 60 guests and instant online booking, so a room for fourteen is easy.</p>
+        <div class="pills"><a class="pill" href="https://maps.google.com/?q=Banya+Shinjuku+Higashiguchi+izakaya" target="_blank">📍 Banya Shinjuku</a><a class="pill" href="https://tabelog.com/en/tokyo/A1304/A130401/13030041/" target="_blank">📖 Tabelog</a></div><div class="ctas"><a class="cta" href="https://www.tablecheck.com/en/banya-shinjuku" target="_blank">Reserve the private room →</a></div>
+      </div>
+      <div class="meals"><div class="mt">🍽️ Breakfast · Lunch · Dinner</div>
+        <div class="meal"><span class="mk">🥐 Breakfast</span><span>Early-ish hotel breakfast before the ~8 AM pickup. Eat properly, it is a full day out.</span></div>
+        <div class="meal"><span class="mk">🍱 Lunch</span><span>Lakeside in Hakone. Ask the guide for the <b>Hakone Hotel lakeside restaurant</b> (buffet, groups welcome, Lake Ashi and Fuji view), or graze local: smelt tempura, soba, and the Owakudani black eggs.</span></div>
+        <div class="meal"><span class="mk">🍶 Dinner</span><span><b>Banya Shinjuku</b> welcome feast, private room, course + free-flow drinks, ~¥5,500 to 8,000 each.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JAN 22 ============ -->
+<section class="wrap" id="jan22">
+  <div class="sec-kicker">Friday · January 22 · ❄️ The Snow Day</div>
+  <h2 class="sec-title">Nikko in the Snow</h2>
+  <p class="sec-sub">Is Nikko far or hard? No. Two to two and a half hours north in a warm private coach that handles the icy mountain road for you. The one day worth an early alarm.</p>
+  <div class="day">
+    <div class="day-head"><div class="dh1"><h3>Guided Day Two</h3><span class="wd">Friday</span></div><div class="agenda">Early pickup → UNESCO shrine → Frozen waterfall → Snow lake → Hot-pot dinner</div></div>
+    <div class="day-body">
+      <div class="step"><div class="sn">1</div><div><h4>🚌 Private pickup at the hotel</h4>
+        <div class="tl">⏰ ~7:30 AM lobby pickup · The one early morning, worth it</div>
+        <p>A proper winter-tired vehicle and guide collect the group from the hotel and drive north. All you do is look out the window as Tokyo gives way to snow country. Grab a convenience-store coffee and onigiri for the road.</p></div></div>
+      <div class="step"><div class="sn">2</div><div><h4>⛩️ Toshogu Shrine and Shinkyo Bridge</h4>
+        <div class="tl">⏰ Late morning · A UNESCO World Heritage site in the cedars</div>
+        <p>The gilded, gloriously over-the-top <b>Toshogu Shrine</b>, resting place of the shogun Tokugawa Ieyasu, wearing snow. The famous sleeping cat, the three wise monkeys, gold leaf against dark cedar. On the way in, the vermilion arc of the <b>Shinkyo Bridge</b> over the icy river. There are stairs and uneven stone, so mind the footing, but this is a walking group and it is glorious.</p>
+        <a class="pin" href="https://maps.google.com/?q=Nikko+Toshogu+Shrine" target="_blank">📍 Toshogu Shrine</a>
+        <a class="pin" href="https://maps.google.com/?q=Shinkyo+Bridge+Nikko" target="_blank">📍 Shinkyo Bridge</a></div></div>
+      <div class="step"><div class="sn">3</div><div><h4>❄️ Kegon Falls, turned to ice</h4>
+        <div class="tl">⏰ Afternoon · Up the Irohazaka switchbacks · Elevator ~9:00 AM to 4:30 PM in winter</div>
+        <p>Up the winding <b>Irohazaka</b> road to <b>Kegon Falls</b>, a near 100-metre cascade that in deep winter partly freezes into pale blue ice, one of Nikko's great sights and the whole reason to come in January. Then the still, white expanse of <b>Lake Chuzenji</b> and the sweeping view from Akechidaira.</p>
+        <a class="pin" href="https://maps.google.com/?q=Kegon+Falls+Nikko" target="_blank">📍 Kegon Falls</a>
+        <a class="pin" href="https://maps.google.com/?q=Lake+Chuzenji+Nikko" target="_blank">📍 Lake Chuzenji</a></div></div>
+      <div class="alert"><b>How to book it and winter notes:</b> TheTokyoTravel runs a private Nikko day tour with hotel pickup priced for groups of nine to twenty, which fits your fourteen exactly. Book the private option and tell them the group size. Dress properly warm, this is mountain cold, well below Tokyo, with snow underfoot. The Kegon elevator runs shorter winter hours (about 9:00 AM to 4:30 PM), and a private guide simply reroutes if snow closes anything higher up. Reserve by <b>November</b>.</div>
+      <div class="bday">
+        <h5>🍲 Dinner: something to thaw you out</h5>
+        <p>You will be back in Tokyo around 7:00 PM, cold to the bone. Two things fix that. First, <b>Thermae-Yu</b>, a real natural hot spring about 5 minutes from the hotel in Kabukicho, with six indoor baths, an open-air bath and saunas, open 24 hours. Soaking off a Nikko snow day in an actual onsen without leaving Shinjuku is the best-value thirty minutes of this trip, and it costs around ¥2,200 booked online. Anyone with tattoos should check the policy first, it is strict. Then hot pot at <b>MO-MO-PARADISE Kabukicho</b>, the original branch, open since 1993 and a few minutes from the hotel: all-you-can-eat shabu-shabu and sukiyaki with F1 wagyu, free-flow vegetables wheeled round on carts, and an all-you-can-drink add-on. Unlimited meat and unlimited beer after a snow day, with nobody counting.</p>
+      </div>
+      <div class="meals"><div class="mt">🍽️ Breakfast · Lunch · Dinner</div>
+        <div class="meal"><span class="mk">🥐 Breakfast</span><span>Convenience-store coffee and onigiri for the road, or hotel breakfast if you are quick.</span></div>
+        <div class="meal"><span class="mk">🥢 Lunch</span><span>In Nikko, local <b>yuba</b> (delicate tofu skin) is the specialty, often included or suggested by the guide.</span></div>
+        <div class="meal"><span class="mk">🍲 Dinner</span><span><b>MO-MO-PARADISE Kabukicho</b>, all-you-can-eat shabu-shabu and sukiyaki, ~¥4,200 plus ~¥2,000 for free-flow drinks.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JAN 23 ============ -->
+<section class="wrap" id="jan23">
+  <div class="sec-kicker">Saturday · January 23</div>
+  <h2 class="sec-title">Free Day: Go Your Own Way</h2>
+  <p class="sec-sub">No schedule, no group march. Split up, chase whatever each of you wants, and simply regroup twice: lunch at 1, dinner at 7. Two fixed points, total freedom in between.</p>
+  <div class="day">
+    <div class="day-head"><div class="dh1"><h3>Free Day One</h3><span class="wd">Saturday</span></div><div class="agenda">Own plans → 🍽️ Reunite for lunch 1 PM → Own plans → 🍶 Reunite for dinner 7 PM → Golden Gai</div></div>
+    <div class="day-body">
+      <div class="fix"><span class="fixt">🍽️ REUNITE · Lunch, 1:00 PM</span>
+        <h4>Shabuzen Shibuya</h4>
+        <p>Everyone converges here at 1. It is a long-running shabu-shabu and sukiyaki house, 8 minutes from Shibuya's Hachiko exit, with an English menu, a <b>tatami room</b>, and all-you-can-eat plus all-you-can-drink plans, which is exactly what fits fourteen who have scattered all morning. Book the lunch seating for 14 and give it one owner.</p>
+        <div class="pills"><a class="pill" href="https://maps.google.com/?q=Shabuzen+Shibuya" target="_blank">📍 Shabuzen Shibuya</a><a class="pill" href="https://savorjapan.com/0032004773" target="_blank">📖 Reserve (SAVOR JAPAN)</a></div>
+      </div>
+      <div class="idea"><span class="ideat">☀️ Between meals · pick your own</span>
+        <p>Ideas, not orders. Peel off in whatever small groups form:</p>
+        <ul class="ideas">
+          <li><b>Shoppers:</b> Shibuya 109, Harajuku's Takeshita Street, Omotesando, then Shinjuku's Isetan and NEWoMan on the way back.</li>
+          <li><b>Views:</b> Shibuya Sky observation deck, best on a clear winter afternoon.</li>
+          <li><b>Culture and calm:</b> Meiji Jingu shrine and the quiet of Yoyogi Park, both free.</li>
+          <li><b>Pop culture:</b> Nintendo, Pokémon and character stores in Shibuya PARCO, or the Kiddy Land flagship on Omotesando.</li>
+          <li><b>Coffee and people-watching:</b> the cafes around Cat Street between Shibuya and Harajuku.</li>
+        </ul>
+      </div>
+      <div class="bday">
+        <h5>🍶 REUNITE · Dinner 7 PM, then the big night</h5>
+        <p>Back together for the night your crew came for. Start with the booked <b>group izakaya</b> (course plus nomihoudai) at <b>Banya Shinjuku</b>, then spill into the alleys: <b>Omoide Yokocho</b> for smoky yakitori and beer, and <b>Golden Gai</b>, over 200 tiny themed bars that seat 5 to 10 each, so you split into clusters naturally. Want a local to open the hidden Golden Gai doors? The optional guided bar-hop is in the Booking Desk.</p>
+        <div class="pills"><a class="pill" href="https://www.tablecheck.com/en/banya-shinjuku" target="_blank">🍶 Book Banya</a><a class="pill" href="https://maps.google.com/?q=Omoide+Yokocho+Shinjuku" target="_blank">📍 Omoide Yokocho</a><a class="pill" href="https://maps.google.com/?q=Shinjuku+Golden+Gai" target="_blank">📍 Golden Gai</a></div>
+      </div>
+      <div class="meals"><div class="mt">🍽️ The two fixed meals</div>
+        <div class="meal"><span class="mk">🍽️ Lunch 1 PM</span><span><b>Shabuzen Shibuya</b>, all-you-can-eat shabu-shabu, tatami room for 14, ~¥3,500 to 6,000 each.</span></div>
+        <div class="meal"><span class="mk">🍶 Dinner 7 PM</span><span><b>Banya Shinjuku</b> izakaya (~¥5,000 to 7,000 each), then Golden Gai and Omoide Yokocho.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JAN 24 ============ -->
+<section class="wrap" id="jan24">
+  <div class="sec-kicker">Sunday · January 24</div>
+  <h2 class="sec-title">Free Day: Last Treasures</h2>
+  <p class="sec-sub">Your last full day. Same shape as Saturday: scatter for the morning, reunite for a proper lunch in old Tokyo, then a farewell dinner together. Two anchors, everything else your own.</p>
+  <div class="day">
+    <div class="day-head"><div class="dh1"><h3>Free Day Two</h3><span class="wd">Sunday</span></div><div class="agenda">Own plans → 🍽️ Reunite for lunch 12:30 → Own plans → 🥂 Farewell dinner 7 PM</div></div>
+    <div class="day-body">
+      <div class="idea"><span class="ideat">☀️ Morning · pick your own</span>
+        <p>Ideas to split across the group:</p>
+        <ul class="ideas">
+          <li><b>Old Tokyo:</b> Senso-ji temple and the Nakamise souvenir street in Asakusa, the most atmospheric corner of the city and the best last-minute gift run. About 30 to 35 min by train from Shinjuku.</li>
+          <li><b>The view:</b> Tokyo Skytree and the Solamachi mall at its base, a short hop from Asakusa.</li>
+          <li><b>Early risers and foodies:</b> Tsukiji Outer Market for a seafood breakfast graze.</li>
+          <li><b>Last shopping:</b> back to Shinjuku for anything the group still wants from Isetan, Yodobashi or the drugstores.</li>
+          <li><b>Quiet option:</b> the gardens of Shinjuku Gyoen, ten minutes from the hotel.</li>
+        </ul>
+      </div>
+      <div class="fix"><span class="fixt">🍽️ REUNITE · Lunch, 12:30 PM</span>
+        <h4>Asakusa Imahan</h4>
+        <p>Everyone converges in Asakusa. Imahan is a celebrated <b>sukiyaki</b> house near Senso-ji with <b>private tatami rooms for groups of 6 to 20</b>, the beef cooked tableside so everyone joins in. It is the ideal reunion lunch: no shared dining with strangers, and a genuinely special Tokyo meal on your last full day. Reserve the private room for 14 well ahead.</p>
+        <div class="pills"><a class="pill" href="https://maps.google.com/?q=Asakusa+Imahan+Tokyo" target="_blank">📍 Asakusa Imahan</a><a class="pill" href="https://savorjapan.com/search?prefecture_codes=13" target="_blank">📖 Reserve (SAVOR JAPAN)</a></div>
+      </div>
+      <div class="bday">
+        <h5>🥂 REUNITE · The farewell dinner, 7 PM</h5>
+        <p>Make tonight the good one, a sit-down group dinner in a private room and a toast to five days and fourteen friends. Tell me the mood, a celebrated <b>sukiyaki</b> house, a fine <b>sushi</b> course, or a warm <b>kaiseki</b> room, and I will pin a specific verified place that seats fourteen. Book before you fly, the best rooms go early.</p>
+      </div>
+      <div class="meals"><div class="mt">🍽️ The two fixed meals</div>
+        <div class="meal"><span class="mk">🍽️ Lunch 12:30</span><span><b>Asakusa Imahan</b>, tableside sukiyaki, private tatami room for 14, ~¥5,000 to 9,000 each.</span></div>
+        <div class="meal"><span class="mk">🥂 Dinner 7 PM</span><span>The farewell splurge, private room, ~¥8,000 to 15,000 each depending where you land.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JAN 25 ============ -->
+<section class="wrap" id="jan25">
+  <div class="sec-kicker">Monday · January 25</div>
+  <h2 class="sec-title">Home to Bicol</h2>
+  <p class="sec-sub">The early one. One dark-morning ride, then Tokyo lets you go with the sunrise.</p>
+  <div class="day">
+    <div class="day-head"><div class="dh1"><h3>Departure Day</h3><span class="wd">Monday</span></div><div class="agenda">Early coach → Two flights → Home by evening</div></div>
+    <div class="day-body">
+      <div class="step"><div class="sn">1</div><div><h4>🚌 Private coach to Narita</h4>
+        <div class="tl">⏰ Lobby by 5:45 AM · 70 to 90 min · At Narita ~7:15 AM</div>
+        <p>Your flight leaves at 9:20 AM, so the microbus is at the door by 5:45 AM to check in comfortably. Grab a convenience-store breakfast the night before, or eat once you are through security at Narita. Pre-book this pickup with the same operator as the arrival leg.</p>
+        <a class="pin" href="https://maps.google.com/?q=Narita+Airport+Terminal+2" target="_blank">📍 Narita Terminal 2</a></div></div>
+      <div class="route">
+        <div class="rt">NRT T2 ──── <b>PR431</b> Non-Stop ──── MNL T1</div>
+        <div class="rd"><span>🛫 9:20 AM · Narita Terminal 2</span><span>🛬 1:40 PM · NAIA Terminal 1</span></div>
+        <div class="rm">Philippine Airlines · Bags checked through to Daraga · Last-minute Tokyo Banana and Royce at the airside shops before you board</div>
+      </div>
+      <div class="step"><div class="sn">2</div><div><h4>🚖 NAIA T1 → Terminal 2</h4>
+        <div class="tl">⏰ ~2:00 PM · Free shuttle or Grab · Layover about 2 hours · eTravel arrival QR ready</div>
+        <p>A comfortable connection back at NAIA. Move to T2, stay together, and if anyone is peckish there is time for one last bite.</p></div></div>
+      <div class="route">
+        <div class="rt">MNL T2 ──── <b>PR2919</b> ──── DRP</div>
+        <div class="rd"><span>🛫 3:50 PM · NAIA Terminal 2</span><span>🛬 5:05 PM · Bicol Intl Airport</span></div>
+        <div class="rm">PAL Express · Home by evening, fourteen phones full of the same five days seen fourteen ways</div>
+      </div>
+      <div class="meals"><div class="mt">🍽️ Breakfast · Lunch · Dinner</div>
+        <div class="meal"><span class="mk">🥐 Breakfast</span><span>Convenience-store haul the night before, or eat airside at Narita after security.</span></div>
+        <div class="meal"><span class="mk">🍱 Lunch</span><span>Onboard PR431, then NAIA during the connection.</span></div>
+        <div class="meal"><span class="mk">🏠 Dinner</span><span>Home in Daraga. What a trip, you two, and all fourteen of you.</span></div>
+      </div>
+      <div class="tip">🏠 <b>You made it home.</b> Seven couples, one long table, five nights of winter Tokyo and a snow day in Nikko. 🇯🇵</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EATING TOGETHER ============ -->
+<section class="wrap" id="eat">
+  <div class="sec-kicker">The Whole Point</div>
+  <h2 class="sec-title">Where You Are Actually Eating</h2>
+  <p class="sec-sub">Not vague suggestions. These are named places, each one checked as currently open and each one with a real reputation behind it: long-standing institutions, or spots that people consistently rate and recommend. Every one of them can handle fourteen, which rules out most of Tokyo's famous small restaurants.</p>
+
+  <div class="bk">
+    <span class="whn">Thu Jan 21 · Welcome dinner</span>
+    <div class="bkt">🍶 Banya Shinjuku Higashiguchi · Sanchome</div>
+    <p>Your welcome feast. Chosen for one reason above all: it genuinely fits fourteen in <b>one private room with a door</b>, which almost nothing characterful in Tokyo does. Private rooms take 2 to 60 guests, the courses come with all-you-can-drink, and it takes <b>instant online reservations with no sign-up</b>, so you can lock it tonight from Bicol. Their signature is the Oni-mori, an absurd seven-fish sashimi platter, plus yakitori and hot pots. Open Sundays, 5 minutes from the station.</p>
+    <div class="bkm"><span>Private rooms 2 to 60</span><span>Nomihoudai courses</span><span>~¥5,500 to 8,000</span><span>Instant online booking</span></div>
+    <div class="ctas"><a class="cta" href="https://www.tablecheck.com/en/banya-shinjuku" target="_blank">Reserve in English →</a><a class="cta alt" href="https://tabelog.com/en/tokyo/A1304/A130401/13030041/" target="_blank">Tabelog</a></div>
+  </div>
+
+  <div class="bk">
+    <span class="whn">Fri Jan 22 · After Nikko</span>
+    <div class="bkt">🥩 MO-MO-PARADISE · Kabukicho</div>
+    <p>The original branch, opened in Kabukicho in 1993, and it is a few minutes from your hotel. All-you-can-eat <b>shabu-shabu and sukiyaki</b> with F1 wagyu, free-flow vegetables wheeled round on carts, and an all-you-can-drink add-on. Reviews are consistently warm and it is the staff people write about by name, which is a good sign. This is the right meal after a freezing day in Nikko: everyone round a bubbling pot, unlimited meat, unlimited beer, nobody counting.</p>
+    <div class="bkm"><span>Est. 1993, the original</span><span>AYCE from ~¥4,200</span><span>Nomihoudai ~¥2,000</span><span>8F Humax Pavilion, Kabukicho</span></div>
+    <div class="ctas"><a class="cta alt" href="https://maps.google.com/?q=MO-MO-PARADISE+Kabukicho+Shinjuku" target="_blank">📍 Location</a><a class="cta alt" href="https://tabelog.com/en/tokyo/A1304/A130401/13148762/" target="_blank">Alternative: Banya hot pot branch</a></div>
+  </div>
+
+  <div class="bk">
+    <span class="whn soft">Wed 20 &amp; Sat 23 · The alleys</span>
+    <div class="bkt">🏮 Omoide Yokocho, then Golden Gai</div>
+    <p>Do them in this order, because they do different jobs. <b>Omoide Yokocho</b> is the food alley: around 80 tiny stalls wedged against the train tracks, open-fronted charcoal grills, yakitori at roughly ¥150 to 250 a skewer, beer ¥600 to 800, highballs ¥400 to 600. No reservations, no cover charge at most stalls, turnover is fast so if the stools are full just try the next one. Best between 7 and 10 PM. The one people always name is <b>Kabuto</b>, a no-frills stall that grills only freshwater eel, and <b>Bar Albatross</b> for its chandelier.</p>
+    <p style="margin-top:9px"><b>Golden Gai</b> is the second stop, after dinner, and it is about drinking rather than eating: over 200 miniature themed bars, each seating 5 to 10, which is exactly why fourteen of you will split into clusters. For bars that reliably welcome foreigners and have English-speaking staff, the names that come up again and again are <b>Albatross G</b>, <b>Bar Plastic Model</b> and <b>Cambiare</b>.</p>
+    <div class="bkm"><span>No booking, walk in</span><span>Cash only</span><span>Yakitori ¥150 to 250</span><span>Golden Gai after 8 PM</span></div>
+    <div class="ctas"><a class="cta alt" href="https://maps.google.com/?q=Omoide+Yokocho+Shinjuku" target="_blank">📍 Omoide Yokocho</a><a class="cta alt" href="https://maps.google.com/?q=Shinjuku+Golden+Gai" target="_blank">📍 Golden Gai</a></div>
+  </div>
+
+  <div class="alert"><b>Two Kabukicho warnings, because your hotel is in it.</b> First, the outer streets around Kabukicho have an ongoing problem with touts running overcharging scams: Tokyo police logged more than 360 complaints in 2025. Never follow anyone who approaches you on the street offering a bar, a club or a girl, no matter how friendly. Stick to places you chose yourselves, like everything on this page. Second, in Golden Gai, photographing the alleys needs permission from the local business association and photographing inside a bar needs the owner's consent, so always ask <b>"Shashin ii desu ka?"</b> before raising a camera.</div>
+
+  <div class="shop"><h5>🗝️ The magic words when you book</h5>
+    <p>Ask for a <b>private room (koshitsu)</b> and a <b>course with nomihoudai</b> (all-you-can-drink for a set time, usually 90 minutes to 2 hours). This fixes the price per head, keeps all fourteen of you in one room, and keeps the sake flowing without anyone counting glasses.</p></div>
+  <div class="shop"><h5>🛎️ Let the front desk do the calling</h5>
+    <p>The hotel can phone and reserve tables for fourteen far more smoothly than you can from Bicol, especially anywhere without English online booking. Hand them your dinner list at check-in on Jan 20, or email ahead. For a big group in Tokyo this is the single best trick there is.</p></div>
+  <div class="shop"><h5>💻 Booking platforms in English</h5>
+    <p><b>TableCheck</b> and <b>Tabelog</b> are the two that matter, with <b>SAVOR JAPAN</b> and <b>OMAKASE</b> as backups. Aim for variety across the five nights so it never feels repetitive: hot pot one night, izakaya the next, alleys on the big night.</p>
+    <table>
+      <tr><th>Night</th><th>Mood</th><th>Where</th></tr>
+      <tr><td>Wed 20</td><td>Casual, late</td><td>Omoide Yokocho stalls, walk in, or a convenience-store spread</td></tr>
+      <tr><td>Thu 21</td><td>Welcome</td><td>Lakeside lunch in Hakone, then Banya Shinjuku for dinner</td></tr>
+      <tr><td>Fri 22</td><td>Warming</td><td>Thermae-Yu soak, then MO-MO-PARADISE hot pot</td></tr>
+      <tr><td>Sat 23</td><td>The big night</td><td>Group izakaya, then Golden Gai and Omoide Yokocho crawl</td></tr>
+      <tr><td>Sun 24</td><td>Farewell</td><td>The splurge: fine sukiyaki, a sushi course, or a kaiseki room</td></tr>
+    </table></div>
+  <div class="alert"><b>Book at least three before you fly:</b> the welcome dinner, the Nikko-night hot pot and the farewell dinner. The casual nights can stay spontaneous, but a table for fourteen is not something to gamble on when you are already hungry and cold. And one honest note: Tokyo venues close and move often, a well-known group restaurant was left out of this guide precisely because it had shut down, so give any spot a quick confirm when you reserve.</div>
+</section>
+
+<!-- ============ SHOPPING ============ -->
+<section class="wrap" id="shopping">
+  <div class="sec-kicker">Shopping · What and Where</div>
+  <h2 class="sec-title">Everything Central and Walkable</h2>
+  <p class="sec-sub">Shinjuku is one of Tokyo's great shopping hubs, with Harajuku and Shibuya a few minutes away and Asakusa for souvenirs on the last day. Bring passports for tax-free over ¥5,000 per store, and remember you each have 2 checked bags, so shop without fear.</p>
+  <div class="shop"><h5>🏬 Shinjuku · Right at the Hotel</h5>
+    <p>Steps from your room: <b>Isetan</b>, Tokyo's most famous department store, with a food hall worth the trip alone, plus <b>NEWoMan</b> and <b>Lumine</b> over the station, the enormous <b>Bic Camera</b> and <b>Yodobashi</b> electronics stores, and Uniqlo and drugstore flagships. Perfect for shopping right up until dinner.</p>
+    <a class="pin" href="https://maps.google.com/?q=Isetan+Shinjuku" target="_blank">📍 Isetan Shinjuku</a>
+    <a class="pin" href="https://maps.google.com/?q=NEWoMan+Shinjuku" target="_blank">📍 NEWoMan</a>
+    <a class="pin" href="https://maps.google.com/?q=Yodobashi+Camera+Shinjuku" target="_blank">📍 Yodobashi</a></div>
+  <div class="shop"><h5>👟 Harajuku &amp; Shibuya · A Few Minutes South</h5>
+    <p>On the Saturday free day: <b>Takeshita Street</b> in Harajuku for youthful fun, <b>Omotesando</b> for designer avenues, and <b>Shibuya</b> for the crossing, department stores and Shibuya Sky. All one or two train stops from Shinjuku.</p>
+    <a class="pin" href="https://maps.google.com/?q=Takeshita+Street+Harajuku" target="_blank">📍 Harajuku</a>
+    <a class="pin" href="https://maps.google.com/?q=Shibuya+Scramble+Crossing" target="_blank">📍 Shibuya</a></div>
+  <div class="shop"><h5>🎁 Nakamise + Solamachi · Souvenir Central</h5>
+    <p>On the Jan 24 Asakusa day, <b>Nakamise Street</b> is a wall of traditional gifts: senbei crackers, fans, yukata, sweets, keychains. Then <b>Solamachi</b> under the Skytree bundles Ghibli, Sanrio, Pokemon and local snacks in one warm mall. This is your pasalubong sweep in one afternoon.</p>
+    <a class="pin" href="https://maps.google.com/?q=Nakamise+Shopping+Street+Asakusa" target="_blank">📍 Nakamise</a>
+    <a class="pin" href="https://maps.google.com/?q=Tokyo+Solamachi" target="_blank">📍 Solamachi</a></div>
+  <div class="shop"><h5>💊 Drugstores · Tax-Free and Cheaper than Manila</h5>
+    <p><b>Matsumoto Kiyoshi</b> and other big drugstores are all over Shinjuku: skincare, sunscreen, Lululun masks, painkillers, vitamins, snacks. Spend over ¥5,000 in one store, show passports, pay tax-free. Best raid time: the Saturday shopping afternoon.</p>
+    <a class="pin" href="https://maps.google.com/?q=Matsumoto+Kiyoshi+Shinjuku" target="_blank">📍 Matsumoto Kiyoshi Shinjuku</a></div>
+  <div class="shop"><h5>✈️ Airport Finale · Tokyo Banana + Royce at Narita</h5>
+    <p>Buy these at the airport on Jan 25, it is the smart move: <b>Tokyo Banana and Royce chocolates</b> are sold airside at Narita Terminal 2, boxed for travel, and Royce sells cooler bags so the Nama chocolate survives to Manila. Clear security early, sweep the airside shops, then board. Freshest is at the gate, do not carry them around all week.</p></div>
+</section>
+
+<!-- ============ TIPS ============ -->
+<section class="wrap" id="tips">
+  <div class="sec-kicker">Things You Need to Know</div>
+  <h2 class="sec-title">Read Before You Leave Manila</h2>
+  <div class="shop"><h5>🗓️ WHAT TO BOOK, AND ROUGHLY WHEN</h5>
+    <table>
+      <tr><th>When</th><th>Book / Do</th><th>Where</th></tr>
+      <tr><td class="num">NOW</td><td>Block <b>7 rooms</b> at <b>HOTEL GROOVE SHINJUKU</b> on a free-cancellation rate. Its window is open now, and you are 5 minutes from Golden Gai</td><td><a href="https://www.booking.com/hotel/jp/groove-shinjuku-a-parkroyal.html" target="_blank">Booking.com</a> / <a href="https://www.hotelgroove.jp/en/" target="_blank">Official</a></td></tr>
+      <tr><td class="num">NOW</td><td>Book the <b>private airport coach, both ways</b> (Medium Size Bus, ¥123,800 each way). Klook caps at 9-seat vans, so use CAB STATION to keep all 14 in one coach</td><td><a href="https://rsv.charterbus-limousine.com/quotation/" target="_blank">CAB STATION</a></td></tr>
+      <tr><td class="num">By Nov 2026</td><td>Book the <b>private Nikko day</b> (Jan 22). Fully private, fourteen pax, English guide, hotel pickup, winter tyres</td><td><a href="https://www.charterbus-limousine.com/private-tour/nikko/nikko.html" target="_blank">CAB STATION</a> / <a href="https://www.thetokyotravel.com/private-tours/p/nikko-private-day-tour-with-guide-temples-waterfalls-nature" target="_blank">TheTokyoTravel</a></td></tr>
+      <tr><td class="num">By Nov 2026</td><td><b>Two private day trips</b>, Hakone (Jan 21) and Nikko (Jan 22), quoted together. 14 in one vehicle, winter tyres in writing</td><td><a href="https://rsv.charterbus-limousine.com/quotation/" target="_blank">CAB STATION</a> / <a href="https://www.thetokyotravel.com/private-tours/p/nikko-private-day-tour-with-guide-temples-waterfalls-nature" target="_blank">TheTokyoTravel</a></td></tr>
+      <tr><td class="num">By Dec 2026</td><td>Reserve the <b>group dinners</b>, at least the welcome, farewell, and one more. Or hand the list to the concierge to book on arrival</td><td>Tabelog / SAVOR JAPAN / concierge</td></tr>
+      <tr><td class="num">Before flying</td><td><b>Japan eSIM</b> for every phone, plus a <b>Welcome Suica</b> IC card each (or add Suica to iPhone Wallet)</td><td><a href="https://www.klook.com/en-PH/activity/109393-japan-esim-high-speed-internet-qr-code-voucher/" target="_blank">eSIM</a> / <a href="https://www.klook.com/en-US/activity/16917-suica-ic-card-tokyo/" target="_blank">Suica</a></td></tr>
+      <tr><td class="num">Optional, fun</td><td><b>Guided Shinjuku bar-hop</b> for one night, if you want a local to open the hidden Golden Gai bars (private or join-in)</td><td><a href="https://www.klook.com/en-US/activity/93203-omoide-yokocho-kabukicho-district-shinjuku-golden-gai-private-half-day-food-tour/" target="_blank">Klook private</a> / <a href="https://www.klook.com/en-US/activity/94282-shinjuku-area-join-half-day-drinks-tour-3-hour-tokyo-local-bar-izakaya-crawl/" target="_blank">join-in</a></td></tr>
+      <tr><td class="num">Jan 17 to 20</td><td><b>eTravel</b> for all fourteen (72-hour window before the Jan 20 flight), screenshot every QR</td><td>etravel.gov.ph</td></tr>
+      <tr><td class="num">Jan 19</td><td><b>PAL online check-in</b> (opens 24 hrs before) for the whole group</td><td>philippineairlines.com</td></tr>
+    </table></div>
+  <div class="shop"><h5>🧥 What to Wear · Real Winter, Colder in Nikko</h5>
+    <p>The formula, every day: <b>① Heattech or thermal top and bottom</b> → <b>② sweater or fleece</b> → <b>③ an insulated winter jacket</b> (padded or down, hooded) → <b>④ comfortable waterproof shoes with grip</b>, warm socks, gloves, beanie, scarf. Tokyo sits around 3 to 10 degrees, usually crisp, dry and sunny. <b>Nikko is far colder</b>, often below freezing with snow, so add an extra layer for the Jan 22 mountain day. Buy kairo heat packs at the first convenience store and keep one in each pocket. Trains and malls are warm, so layers you can peel are the whole trick.</p></div>
+  <div class="shop"><h5>👥 Moving as a Group of Fourteen</h5>
+    <p>Fourteen people move slowly, and that is fine. Set two simple habits: a group chat for the wanderers, and a fixed meeting time and spot at every regroup. On the free days, splitting into smaller clusters for an hour is perfectly good as long as <b>dinner is the fixed point</b> everyone returns to. The private-tour days need no such worry, the guide holds the group together.</p></div>
+  <div class="shop"><h5>💴 Cash · Still Matters</h5>
+    <p>Cards work in the big shops, but small izakaya, market snacks and especially <b>Golden Gai bars</b> (cash-only, small seating charge) are cash-first. Everyone should carry ¥15,000 to 20,000. 7-Eleven ATMs reliably take foreign cards.</p></div>
+  <div class="shop"><h5>🚆 Getting Around · IC Cards</h5>
+    <p>Your base is on top of Shinjuku Station, the world's busiest hub, so almost everywhere is a direct or one-change ride and the west-side spots are minutes away. Everyone gets a <b>Suica or Welcome Suica</b> IC card, or the mobile version on iPhone, for tap-and-go on every train, bus and convenience store. Note: Android phones bought abroad cannot load mobile Suica, so get the physical Welcome Suica.</p></div>
+  <div class="shop"><h5>🧳 Luggage · Fully Handled</h5>
+    <p>Your PAL tickets include <b>2 checked pieces each</b> (23 kg per piece), so big suitcases plus hand-carry are completely fine. The private coach carries everyone's bags door to door on both the arrival and departure days, so there is no train-and-suitcase juggling anywhere in this plan. On Jan 25, the hotel can hold nothing since you check out and leave straight for the airport, so pack the night before.</p></div>
+  <div class="shop"><h5>💰 Budget Snapshot · Per Couple</h5>
+    <p>Estimates only, to help you plan and split. Real prices depend on the day you book and the yen rate. Land costs only, on top of the flights you have already ticketed. The guided days and the coach are group-priced and already split seven ways here. Peso figures use ¥1 = ₱0.377, so re-check the rate nearer the time. Shopping and souvenirs are not included.</p>
+    <table>
+      <tr><th>Item</th><th>Per couple (approx)</th></tr>
+      <tr><td>Hotel, 5 nights (one room)</td><td class="num">¥150,000 to 200,000</td></tr>
+      <tr><td>Private airport coach, both ways (share of ¥247,600)</td><td class="num">¥35,400</td></tr>
+      <tr><td>Hakone private guided day, Jan 21 (share)</td><td class="num">¥27,000 to 44,000</td></tr>
+      <tr><td>Nikko private guided day (share)</td><td class="num">¥27,000 to 44,000</td></tr>
+      <tr><td>Group dinners, drinks and bar-hop, 5 nights</td><td class="num">¥60,000 to 90,000</td></tr>
+      <tr><td>Lunches, snacks, entries, IC top-ups</td><td class="num">¥25,000 to 40,000</td></tr>
+      <tr><td>eSIM and Suica, two people</td><td class="num">¥6,000 to 8,000</td></tr>
+      <tr><td>Thermae-Yu onsen, two people</td><td class="num">¥4,400</td></tr>
+      <tr><td><b>Estimated land cost per couple</b></td><td class="num">¥335,000 to 466,000</td></tr>
+      <tr><td><b>Roughly, in pesos</b></td><td class="num">~₱126,000 to 176,000</td></tr>
+    </table></div>
+</section>
+
+<!-- ============ LINKS ============ -->
+<section class="wrap" id="links">
+  <div class="sec-kicker">One Place</div>
+  <h2 class="sec-title">🔗 All Maps and Key Links</h2>
+  <div class="linkwall">
+    <a href="https://maps.google.com/?q=Tokyu+Kabukicho+Tower+Shinjuku" target="_blank">🏨 HOTEL GROOVE Shinjuku</a>
+    <a href="https://www.booking.com/hotel/jp/groove-shinjuku-a-parkroyal.html" target="_blank">🛎️ Book the hotel</a>
+    <a href="https://maps.google.com/?q=Narita+Airport+Terminal+2" target="_blank">✈️ Narita Terminal 2</a>
+    <a href="https://maps.google.com/?q=Thermae-Yu+Shinjuku+Kabukicho" target="_blank">♨️ Thermae-Yu onsen</a>
+    <a href="https://maps.google.com/?q=Shibuya+Scramble+Crossing" target="_blank">🚦 Shibuya Crossing</a>
+    <a href="https://maps.google.com/?q=Imperial+Palace+East+Gardens+Tokyo" target="_blank">🏯 Imperial Palace</a>
+    <a href="https://maps.google.com/?q=Nikko+Toshogu+Shrine" target="_blank">⛩️ Nikko Toshogu</a>
+    <a href="https://maps.google.com/?q=Shinkyo+Bridge+Nikko" target="_blank">🌉 Shinkyo Bridge</a>
+    <a href="https://maps.google.com/?q=Kegon+Falls+Nikko" target="_blank">❄️ Kegon Falls</a>
+    <a href="https://maps.google.com/?q=Lake+Chuzenji+Nikko" target="_blank">🏔️ Lake Chuzenji</a>
+    <a href="https://maps.google.com/?q=Tsukiji+Outer+Market+Tokyo" target="_blank">🐟 Tsukiji Outer Market</a>
+    <a href="https://maps.google.com/?q=Omoide+Yokocho+Shinjuku" target="_blank">🏮 Omoide Yokocho</a>
+    <a href="https://maps.google.com/?q=Shinjuku+Golden+Gai" target="_blank">🍶 Golden Gai</a>
+    <a href="https://maps.google.com/?q=Isetan+Shinjuku" target="_blank">🏬 Isetan Shinjuku</a>
+    <a href="https://maps.google.com/?q=NEWoMan+Shinjuku" target="_blank">🛍️ NEWoMan</a>
+    <a href="https://maps.google.com/?q=Takeshita+Street+Harajuku" target="_blank">👟 Harajuku</a>
+    <a href="https://maps.google.com/?q=Yodobashi+Camera+Shinjuku" target="_blank">📷 Yodobashi</a>
+    <a href="https://maps.google.com/?q=Matsumoto+Kiyoshi+Shinjuku" target="_blank">💊 Matsumoto Kiyoshi</a>
+    <a href="https://maps.google.com/?q=Senso-ji+Temple+Asakusa" target="_blank">🏮 Senso-ji</a>
+    <a href="https://maps.google.com/?q=Nakamise+Shopping+Street+Asakusa" target="_blank">🎁 Nakamise Street</a>
+    <a href="https://maps.google.com/?q=Tokyo+Skytree" target="_blank">🗼 Tokyo Skytree</a>
+    <a href="https://maps.google.com/?q=Tokyo+Solamachi" target="_blank">🏬 Solamachi</a>
+    <a href="https://maps.google.com/?q=Banya+Shinjuku+Higashiguchi+izakaya" target="_blank">🍶 Banya Shinjuku</a>
+    <a href="https://maps.google.com/?q=MO-MO-PARADISE+Kabukicho+Shinjuku" target="_blank">🥩 MO-MO-PARADISE</a>
+    <a href="https://tabelog.com/en/tokyo/A1304/A130401/13030041/" target="_blank">📖 Banya (book)</a>
+    <a href="https://www.thetokyotravel.com/private-tours/p/nikko-private-day-tour-with-guide-temples-waterfalls-nature" target="_blank">🚌 Nikko Private Tour</a>
+    <a href="https://rsv.charterbus-limousine.com/quotation/" target="_blank">🚐 CAB STATION (coach)</a>
+    <a href="https://www.klook.com/en-PH/activity/109393-japan-esim-high-speed-internet-qr-code-voucher/" target="_blank">📱 Klook: Japan eSIM</a>
+    <a href="https://www.klook.com/en-US/activity/16917-suica-ic-card-tokyo/" target="_blank">🚆 Klook: Welcome Suica</a>
+    <a href="https://www.klook.com/en-US/activity/93203-omoide-yokocho-kabukicho-district-shinjuku-golden-gai-private-half-day-food-tour/" target="_blank">🍻 Klook: Shinjuku Bar-Hop</a>
+    <a href="https://etravel.gov.ph" target="_blank">🛂 eTravel</a>
+  </div>
+</section>
+
+<footer>
+  <div class="heart">Your personal trip guide, made with care 🗼</div>
+  <b>January 20 to 25, 2027 · Daraga · Manila · Tokyo · Nikko</b><br>
+  Seven couples, one long table 🍶 · Verify all bookings and prices when you reserve, venues checked at time of writing
+</footer>
+
+</body>
+</html>
